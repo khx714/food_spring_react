@@ -1,4 +1,21 @@
 ### get something
 GET http://localhost:8080/
 POST http://localhost:8080/
+Content-Type: application/json
 
+{
+    "name": "Kajal",
+    "info" : "Yellow"
+}
+PUT http://localhost:8080/623aea4085b2372d69f04f9c
+Content-Type: application/json
+{
+    "name": "Ts",
+    "info" : "Yellow"
+}
+DELETE http://localhost:8080/623aea4085b2372d69f04f9c
+Content-Type: application/json
+{
+    "name": "Ts",
+    "info" : "SARAellow"
+}
