@@ -1,4 +1,4 @@
-package com.kajalhamedi.food_spring_react;
+package com.kajalhamedi.food_spring_react.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 

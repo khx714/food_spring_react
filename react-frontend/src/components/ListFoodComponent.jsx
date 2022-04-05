@@ -10,14 +10,15 @@ class ListFoodComponent extends Component {
     }
 
     componentDidMount(){
-        FoodSevice.getFoods().then((res) => {
-            this.setState({employs : res.data});
+        FoodSevice.getFoods().then((res) => {            this.setState({food : res.data});
+           
         });
     }
     render() {
         return (
             <div>
                 <h2 className="text-center"> Products List </h2>
+              
                 <div className='row'>
                     <table className="table table-striped table-bordered">
 
