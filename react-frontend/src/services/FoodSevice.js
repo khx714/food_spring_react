@@ -8,6 +8,10 @@ class FoodService {
     getFoods(){
         return axios.get(Food_API_BASE_URL);
     }
+    // method
+createFood(food){
+    return axios.post(Food_API_BASE_URL, food);
+}
 
 }
 

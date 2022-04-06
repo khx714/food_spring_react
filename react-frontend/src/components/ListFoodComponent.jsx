@@ -1,24 +1,37 @@
 import React, { Component } from 'react';
 import FoodSevice from '../services/FoodSevice';
 
+
 class ListFoodComponent extends Component {
     constructor(props){
         super(props)
+
         this.state={
             food: []
         }
+        this.addFood = this.addFood.bind(this);
     }
 
     componentDidMount(){
-        FoodSevice.getFoods().then((res) => {            this.setState({food : res.data});
+        FoodSevice.getFoods().then((res) => {this.setState({food : res.data});
            
         });
     }
+
+    addFood(){
+        this.props.history.push("/add-food");
+    }
+
     render() {
         return (
             <div>
+                
                 <h2 className="text-center"> Products List </h2>
-              
+
+                <button className='btn btn-success' onClick={this.addFood}> Add Product </button>
+                <div className='row'>
+                  
+                </div>
                 <div className='row'>
                     <table className="table table-striped table-bordered">
 

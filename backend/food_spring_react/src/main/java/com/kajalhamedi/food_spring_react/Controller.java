@@ -27,7 +27,6 @@ public class Controller {
     public List<Food> frontpage() {
         List<Food> returnedItems = repository.findAll();
         return returnedItems;
-
     }
 
     @PostMapping("/")
@@ -67,4 +66,5 @@ public class Controller {
         return item;
 
     }
+
 }
