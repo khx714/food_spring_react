@@ -9,10 +9,17 @@ class FoodService {
         return axios.get(Food_API_BASE_URL);
     }
     // method
-createFood(food){
-    return axios.post(Food_API_BASE_URL, food);
-}
+    createFood(food){
+        return axios.post(Food_API_BASE_URL, food);
+    }
+    // method
+    getFoodById(foodId){
+        return axios.get(Food_API_BASE_URL +"/" + foodId);
+    }
+    updateFood(food, foodId){
+        return axios.put(Food_API_BASE_URL +"/" + foodId, food);
 
+    }
 }
 
 export default new FoodService()

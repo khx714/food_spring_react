@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FoodSevice from '../services/FoodSevice';
 import {useNavigate} from "react-router-dom"
 
-class CreateFoodComponent extends Component {
+class UpdateFoodComponent extends Component {
     constructor(props){
         super(props)
 
@@ -69,7 +69,7 @@ cancel(){
                 <div className='container'>
                     <div className='row'>
                         <div className='card col-md-6 offset-md-3 offset-md-3'>
-                        <h3 className='text-center'> Add product</h3>
+                        <h3 className='text-center'> Edit product</h3>
                         <div className='card-body'>
                             <form>
                                 <div className='form-group'>
@@ -110,8 +110,6 @@ cancel(){
 export default function(props) {
     const navigate = useNavigate();
   
-    return <CreateFoodComponent {...props} navigate={navigate} />;
+    return <UpdateFoodComponent {...props} navigate={navigate} />;
   }
   
-
-//export default CreateFoodComponent;

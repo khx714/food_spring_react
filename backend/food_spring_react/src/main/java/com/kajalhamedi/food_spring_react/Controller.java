@@ -29,6 +29,7 @@ public class Controller {
         return returnedItems;
     }
 
+    // Add Food / REST API
     @PostMapping("/")
     public Food frontpage_post(@RequestBody JsonNode food) {
         String name = food.findValue("foodName").asText();
@@ -40,6 +41,7 @@ public class Controller {
         return Food;
     }
 
+    // Delete food / REST API
     @DeleteMapping("/{id}")
     public Food delete_page_post(@RequestBody JsonNode food, @PathVariable String id) {
         Optional<Food> returnedItems = repository.findById(id);
@@ -50,8 +52,10 @@ public class Controller {
 
     }
 
+    // Edit, Update food / REST API
     @PutMapping("/{id}")
     public Food editpage_post(@RequestBody JsonNode food, @PathVariable String id) {
+
         Optional<Food> returnedItems = repository.findById(id);
         Food item = returnedItems.get();
         String name = food.findValue("foodName").asText();
