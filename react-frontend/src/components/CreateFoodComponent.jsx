@@ -6,6 +6,7 @@ class CreateFoodComponent extends Component {
     constructor(props){
         super(props)
 
+
         //define properties
         this.state = {
             
@@ -24,7 +25,7 @@ class CreateFoodComponent extends Component {
         this.saveFood = this.saveFood.bind(this);
 
     }
-
+/*
     saveFood = (e) => {
         e.preventDefault();
         //create food javascript object
@@ -61,11 +62,10 @@ cancel(){
     changeFoodDiscriptionHandler(event){
         this.setState({foodDiscription: event.target.value});
     }
-
+*/
     render() {
         return (
             <div>
-         
                 <div className='container'>
                     <div className='row'>
                         <div className='card col-md-6 offset-md-3 offset-md-3'>
@@ -87,8 +87,8 @@ cancel(){
                                 </div>
 
                                 <div className='form-group'>
-                                    <label> Product Discription: </label>
-                                    <input placeholder='Product Discription' name= 'foodDiscription' className='form-control'
+                                    <label> Product Description: </label>
+                                    <input placeholder='Product Description' name= 'foodDiscription' className='form-control'
                                         value={this.state.foodDiscription} onChange={this.changeFoodDiscriptionHandler}/>
 
                                 </div>

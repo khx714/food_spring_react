@@ -16,10 +16,16 @@ class FoodService {
     getFoodById(foodId){
         return axios.get(Food_API_BASE_URL +"/" + foodId);
     }
+
+    //nabood hanoz 18
     updateFood(food, foodId){
-        return axios.put(Food_API_BASE_URL +"/" + foodId, food);
+        return axios.put(Food_API_BASE_URL +"/update-food" + foodId, food);
 
     }
+    deleteFood(foodId){
+        return axios.delete(Food_API_BASE_URL + "/" + foodId);
+    }
+    
 }
 
 export default new FoodService()

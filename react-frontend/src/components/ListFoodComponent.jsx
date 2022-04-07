@@ -8,23 +8,37 @@ class ListFoodComponent extends Component {
         super(props)
 
         this.state={
-            food: []
+            foods: []
         }
 
         //bind method to the component
+        //bind event handler to the component in the constracture
         this.addFood = this.addFood.bind(this);
         this.editFood = this.editFood.bind(this);
+        this.deleteFood = this.deleteFood.bind(this);
     }
+
+    //define delete method
+    deleteFood(id){
+        //REST API call
+        FoodSevice.deleteFood(id).then( res => {
+            this.setState({foods: this.state.foods.filter(food => food.id !== id)});
+        });
+
+    }
+
     //Create and define method
     //the method should have id argument
     editFood(id){
         //this.props.history.push(`/update-food/${id})
         const { navigate } = this.props;
-        navigate("/update-food/${id}");
+       // navigate(`/update-food/${id}`);
+        navigate("/update-food");
+
 
     }
     componentDidMount(){
-        FoodSevice.getFoods().then((res) => {this.setState({food : res.data});
+        FoodSevice.getFoods().then((res) => {this.setState({foods : res.data});
            
         });
     }
@@ -35,14 +49,9 @@ class ListFoodComponent extends Component {
         //this.props.history.push("/add-food");
     }
 //Edit button
-    editFood(){
-        console.log("editing");
-            // const { navigate } = this.props;
-        // console.log(this.props);
-        //     console.log(navigate);
-        // navigate("/add-food");
+   
         
-    }
+    
 //Delete button
     deleteFood(){
         const { navigate } = this.props;
@@ -68,20 +77,23 @@ class ListFoodComponent extends Component {
                             <tr>
                                 <th> Product Name </th>
                                 <th> Product Price </th>
-                                <th> Product discription </th>
-                                <th> Action </th>
+                                <th> Product Description </th>
+                                <th>  </th>
                             </tr>
                         </thead>
                         <tbody>
                     {
-                        this.state.food.map(
+                        this.state.foods.map(
                             food =>
                             <tr key = {food.id}>
                                 <td>{food.foodName}</td>
                                 <td>{food.foodPrice} </td>
                                 <td>{food.foodDiscription}</td>
-                                <td><button className="btn btn-info" onClick={ () =>this.editFood(food.id)}> Edit </button></td>
-                                <td><button className="btn btn-danger"onClick={this.deleteFood}> Delete </button></td>
+                                <td>
+                                    <button style={{marginRight: "10px"}} onClick={ () => this.editFood(food.id)} className="btn btn-info"> Edit </button>
+                                    <button style={{marginLeft: "10px"}} onClick={ () => this.deleteFood(food.id)} className="btn btn-danger"> Delete </button>
+
+                                </td>
                             </tr>
                         )
                     }
