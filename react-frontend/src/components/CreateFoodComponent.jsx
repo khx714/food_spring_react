@@ -6,7 +6,6 @@ class CreateFoodComponent extends Component {
     constructor(props){
         super(props)
 
-
         //define properties
         this.state = {
             
@@ -25,7 +24,7 @@ class CreateFoodComponent extends Component {
         this.saveFood = this.saveFood.bind(this);
 
     }
-/*
+
     saveFood = (e) => {
         e.preventDefault();
         //create food javascript object
@@ -62,7 +61,7 @@ cancel(){
     changeFoodDiscriptionHandler(event){
         this.setState({foodDiscription: event.target.value});
     }
-*/
+
     render() {
         return (
             <div>

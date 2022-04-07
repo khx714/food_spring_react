@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FoodSevice from '../services/FoodSevice';
-import {useNavigate} from "react-router-dom"
+import {useNavigate, useParams} from "react-router-dom"
 
 
 class UpdateFoodComponent extends Component {
@@ -10,7 +10,8 @@ class UpdateFoodComponent extends Component {
        // debugger
         //define properties
         this.state = {
-            id:this.props.match.params.id,
+        //  id:this.props.match.params.id,
+            id:props.id,
             foodName:"",
             foodPrice:"",
             foodDiscription:""
@@ -23,7 +24,8 @@ class UpdateFoodComponent extends Component {
 
         this.changeFoodDiscriptionHandler = this.changeFoodDiscriptionHandler.bind(this);
 
-        this.updatefood = this.updatefood.bind(this);
+       this.updatefood = this.updatefood.bind(this);
+    //    this.saveFood = this.saveFood.bind(this);
 
     }
 
@@ -36,6 +38,7 @@ class UpdateFoodComponent extends Component {
         });
         });
     }
+    
 
     updatefood = (e) => {
         e.preventDefault();
@@ -43,8 +46,13 @@ class UpdateFoodComponent extends Component {
         let food = {foodName: this.state.foodName, foodPrice: this.state.foodPrice, foodDiscription:this.state.foodDiscription};
        //add data to the object
         console.log("food => " + JSON.stringify(food));
-
-       
+        FoodSevice.updateFood(food,this.state.id).then( res =>{
+            //this.props.history.push("/food");
+            const { navigate } = this.props;
+            navigate("/food");
+        })
+        
+    
     }
     
 
@@ -76,7 +84,6 @@ cancel(){
         return (
             
             <div>
-         
                 <div className='container'>
                     <div className='row'>
                         <div className='card col-md-6 offset-md-3 offset-md-3'>
@@ -120,8 +127,9 @@ cancel(){
 
 export default function(props) {
     const navigate = useNavigate();
-   // const Mach = useMatch();
-  //debugger
-    return <UpdateFoodComponent {...props} navigate={navigate} />;
+    const params = useParams();
+    const id = params.id;
+
+    return <UpdateFoodComponent {...props} navigate={navigate} id={id}/>;
   }
   

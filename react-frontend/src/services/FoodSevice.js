@@ -19,7 +19,7 @@ class FoodService {
 
     //nabood hanoz 18
     updateFood(food, foodId){
-        return axios.put(Food_API_BASE_URL +"/update-food" + foodId, food);
+        return axios.put(Food_API_BASE_URL +"/" + foodId, food);
 
     }
     deleteFood(foodId){

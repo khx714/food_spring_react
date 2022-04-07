@@ -43,7 +43,7 @@ public class Controller {
 
     // Delete food / REST API
     @DeleteMapping("/{id}")
-    public Food delete_page_post(@RequestBody JsonNode food, @PathVariable String id) {
+    public Food delete_page_post(@PathVariable String id) {
         Optional<Food> returnedItems = repository.findById(id);
         Food item = returnedItems.get();
         repository.delete(item);
@@ -52,10 +52,16 @@ public class Controller {
 
     }
 
+    @GetMapping("/{id}")
+    public Food getFood(@PathVariable String id) {
+        Optional<Food> returnedItems = repository.findById(id);
+        return returnedItems.get();
+    }
+
     // Edit, Update food / REST API
     @PutMapping("/{id}")
     public Food editpage_post(@RequestBody JsonNode food, @PathVariable String id) {
-
+        System.out.println("Morning");
         Optional<Food> returnedItems = repository.findById(id);
         Food item = returnedItems.get();
         String name = food.findValue("foodName").asText();

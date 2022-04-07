@@ -23,8 +23,9 @@ class ListFoodComponent extends Component {
         //REST API call
         FoodSevice.deleteFood(id).then( res => {
             this.setState({foods: this.state.foods.filter(food => food.id !== id)});
+            const { navigate } = this.props;
+            navigate("/");
         });
-
     }
 
     //Create and define method
@@ -32,8 +33,8 @@ class ListFoodComponent extends Component {
     editFood(id){
         //this.props.history.push(`/update-food/${id})
         const { navigate } = this.props;
-       // navigate(`/update-food/${id}`);
-        navigate("/update-food");
+       navigate(`/update-food/${id}`);
+        //navigate("/update-food");
 
 
     }
@@ -53,10 +54,11 @@ class ListFoodComponent extends Component {
         
     
 //Delete button
-    deleteFood(){
-        const { navigate } = this.props;
-        navigate("/add-food");
-    }
+    // deleteFood(){
+    //     const { navigate } = this.props;
+    //     console.log("This is the right delete food")
+    //     navigate("/");
+    // }
 
 
 
