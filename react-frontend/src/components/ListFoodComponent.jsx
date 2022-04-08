@@ -32,7 +32,6 @@ class ListFoodComponent extends Component {
   //Create and define method
   //the method should have id argument
   editFood(id) {
-    //this.props.history.push(`/update-food/${id})
     const { navigate } = this.props;
     navigate(`/update-food/${id}`);
     //navigate("/update-food");

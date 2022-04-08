@@ -41,9 +41,8 @@ class CreateFoodComponent extends Component {
     });
   };
 
-  //Cancel Button cancel.bind(this)
+  //Cancel Button
   cancel() {
-    //this.props.history.push("/food");
     const { navigate } = this.props;
     navigate("/food");
   }
