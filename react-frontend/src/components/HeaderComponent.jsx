@@ -1,29 +1,31 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 class HeaderComponent extends Component {
-    constructor(props){
-        super(props)
+  constructor(props) {
+    super(props);
 
-        this.state = {
-
-        }
-    }
-    render() {
-        return (
+    this.state = {};
+  }
+  render() {
+    return (
+      <div>
+        <header>
+          <nav className="navbar navbar-expand-md navbar-dark bg-dark">
             <div>
-                <header>
-                    <nav className='navbar navbar-expand-md navbar-dark bg-dark'>
-                    <div><a href="https://google.com" className=" navbar-brand">Product Managment App</a></div>
-                    
-                    </nav>
-                </header>
+              <a
+                href="https://virnex.fi/en/front-page/"
+                className=" navbar-brand"
+              >
+                Product Managment App
+              </a>
             </div>
-        );
-    }
+          </nav>
+        </header>
+      </div>
+    );
+  }
 }
-
-
 
 export default HeaderComponent;

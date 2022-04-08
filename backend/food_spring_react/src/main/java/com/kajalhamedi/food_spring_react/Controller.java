@@ -56,6 +56,7 @@ public class Controller {
     public Food getFood(@PathVariable String id) {
         Optional<Food> returnedItems = repository.findById(id);
         return returnedItems.get();
+
     }
 
     // Edit, Update food / REST API

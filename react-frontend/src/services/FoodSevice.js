@@ -25,7 +25,7 @@ class FoodService {
     deleteFood(foodId){
         return axios.delete(Food_API_BASE_URL + "/" + foodId);
     }
-    
+     
 }
 
 export default new FoodService()

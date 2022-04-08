@@ -46,3 +46,20 @@
   text-align: center;
   color:white;
 }
+ .list-group{
+    max-height: 300px;
+    margin-bottom: 10px;
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tableFixHead{
+   overflow: auto; 
+   height: 100px; 
+  }
+  .tableFixHead thead th{
+     position: sticky;
+      top: 0;
+       z-index: 1;
+   }
+
